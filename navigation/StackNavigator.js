@@ -22,7 +22,7 @@ const TabIcon = ({ name, focused, IconComponent, focusedColor = '#fff', unfocuse
 );
 
 const homeTabIcon = (props) => (
-  <TabIcon {...props} name="shuffle-outline" IconComponent={Ionicons} focusedColor="#FF4D4D" />
+  <TabIcon {...props} name="home" IconComponent={MaterialIcons} focusedColor="#FF4D4D" />
 );
 
 const likesTabIcon = (props) => (
