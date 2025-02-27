@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {getStatusBarStyle, layoutContainer} from '../utils/layout';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -8,7 +8,7 @@ import CustomButton from '../components/CustomButton';
 import BackButton from '../components/BackButton';
 import {Checkbox} from 'react-native-paper';
 
-const DatingTypeScreen = () => {
+const SexualityScreenScreen = () => {
   const navigation = useNavigation();
   const [isVisible, setIsVisible] = useState(false);
   const [selectedGender, setSelectedGender] = useState(null);
@@ -23,7 +23,7 @@ const DatingTypeScreen = () => {
         <View style={styles.imageAndIconContainer}>
           <View style={styles.imageContainer}>
             <View style={styles.iconContainer}>
-              <MaterialIcons name="favorite" size={26} color="black" />
+              <MaterialIcons name="male" size={26} color="black" />
             </View>
             <Image
               style={styles.image}
@@ -35,54 +35,63 @@ const DatingTypeScreen = () => {
         </View>
 
         <View style={styles.dateContainer}>
-          <Text style={styles.title}>Who are you looking for?</Text>
-          <Text style={styles.infoDescription}>
-            Select all type of relationship you're looking for.
-          </Text>
+          <Text style={styles.title}>What's your sexuality?</Text>
+
           <View style={styles.genderContainer}>
             <View style={styles.genderOption}>
               <Text
                 style={styles.genderText}
-                onPress={() => setSelectedGender(selectedGender === 'male' ? null : 'male')}
-              >
-                Male
+                onPress={() => setSelectedGender('male')}>
+                Straight
               </Text>
-              <Pressable
-                style={styles.radioButton}
-                onPress={() => setSelectedGender(selectedGender === 'male' ? null : 'male')}
-              >
-                <View style={[styles.radioButtonInner, selectedGender === 'male' && styles.radioButtonSelected]} />
-              </Pressable>
+              <TouchableOpacity
+                onPress={() => setSelectedGender('male')}>
+                <View style={styles.radioButton}>
+                  <View style={[styles.radioButtonInner, selectedGender === 'male' && styles.radioButtonSelected]} />
+                </View>
+              </TouchableOpacity>
             </View>
 
             <View style={styles.genderOption}>
               <Text
                 style={styles.genderText}
-                onPress={() => setSelectedGender(selectedGender === 'female' ? null : 'female')}
-              >
-                Female
+                onPress={() => setSelectedGender('female')}>
+                Gay
               </Text>
-              <Pressable
-                style={styles.radioButton}
-                onPress={() => setSelectedGender(selectedGender === 'female' ? null : 'female')}
-              >
-                <View style={[styles.radioButtonInner, selectedGender === 'female' && styles.radioButtonSelected]} />
-              </Pressable>
+              <TouchableOpacity
+                onPress={() => setSelectedGender('female')}>
+                <View style={styles.radioButton}>
+                  <View style={[styles.radioButtonInner, selectedGender === 'female' && styles.radioButtonSelected]} />
+                </View>
+              </TouchableOpacity>
             </View>
 
             <View style={styles.genderOption}>
               <Text
                 style={styles.genderText}
-                onPress={() => setSelectedGender(selectedGender === 'non-binary' ? null : 'non-binary')}
-              >
-                Non-binary
+                onPress={() => setSelectedGender('non-binary')}>
+                Lesbian
               </Text>
-              <Pressable
-                style={styles.radioButton}
-                onPress={() => setSelectedGender(selectedGender === 'non-binary' ? null : 'non-binary')}
-              >
-                <View style={[styles.radioButtonInner, selectedGender === 'non-binary' && styles.radioButtonSelected]} />
-              </Pressable>
+              <TouchableOpacity
+                onPress={() => setSelectedGender('non-binary')}>
+                <View style={styles.radioButton}>
+                  <View style={[styles.radioButtonInner, selectedGender === 'non-binary' && styles.radioButtonSelected]} />
+                </View>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.genderOption}>
+              <Text
+                style={styles.genderText}
+                onPress={() => setSelectedGender('bisexual')}>
+                Bisexual
+              </Text>
+              <TouchableOpacity
+                onPress={() => setSelectedGender('bisexual')}>
+                <View style={styles.radioButton}>
+                  <View style={[styles.radioButtonInner, selectedGender === 'bisexual' && styles.radioButtonSelected]} />
+                </View>
+              </TouchableOpacity>
             </View>
 
             <View style={styles.horizontalLine} />
@@ -104,13 +113,13 @@ const DatingTypeScreen = () => {
 
       <CustomButton
         label="Submit"
-        onPress={() => navigation.navigate('Intention')}
+        onPress={() => navigation.navigate('Dating')}
       />
     </SafeAreaView>
   );
 };
 
-export default DatingTypeScreen;
+export default SexualityScreenScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -8,10 +8,10 @@ import CustomButton from '../components/CustomButton';
 import BackButton from '../components/BackButton';
 import {Checkbox} from 'react-native-paper';
 
-const DatingTypeScreen = () => {
+const DatingIntentionScreen = () => {
   const navigation = useNavigation();
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedGender, setSelectedGender] = useState(null);
+  const [selectedIntention, setSelectedIntention] = useState(null);
 
   return (
     <SafeAreaView style={[styles.container, getStatusBarStyle()]}>
@@ -23,7 +23,7 @@ const DatingTypeScreen = () => {
         <View style={styles.imageAndIconContainer}>
           <View style={styles.imageContainer}>
             <View style={styles.iconContainer}>
-              <MaterialIcons name="favorite" size={26} color="black" />
+              <MaterialIcons name="volunteer-activism" size={26} color="black" />
             </View>
             <Image
               style={styles.image}
@@ -35,53 +35,80 @@ const DatingTypeScreen = () => {
         </View>
 
         <View style={styles.dateContainer}>
-          <Text style={styles.title}>Who are you looking for?</Text>
-          <Text style={styles.infoDescription}>
-            Select all type of relationship you're looking for.
-          </Text>
+          <Text style={styles.title}>What's your dating intention?</Text>
           <View style={styles.genderContainer}>
-            <View style={styles.genderOption}>
+          <View style={styles.genderOption}>
               <Text
                 style={styles.genderText}
-                onPress={() => setSelectedGender(selectedGender === 'male' ? null : 'male')}
+                onPress={() => setSelectedIntention(selectedIntention === 'lifepartner' ? null : 'lifepartner')}
               >
-                Male
+                Life Partner
               </Text>
               <Pressable
                 style={styles.radioButton}
-                onPress={() => setSelectedGender(selectedGender === 'male' ? null : 'male')}
+                onPress={() => setSelectedIntention(selectedIntention === 'lifepartner' ? null : 'lifepartner')}
               >
-                <View style={[styles.radioButtonInner, selectedGender === 'male' && styles.radioButtonSelected]} />
+                <View style={[styles.radioButtonInner, selectedIntention === 'lifepartner' && styles.radioButtonSelected]} />
               </Pressable>
             </View>
 
             <View style={styles.genderOption}>
               <Text
                 style={styles.genderText}
-                onPress={() => setSelectedGender(selectedGender === 'female' ? null : 'female')}
+                onPress={() => setSelectedIntention(selectedIntention === 'serious' ? null : 'serious')}
               >
-                Female
+                Serious Relationships & Commitment
               </Text>
               <Pressable
                 style={styles.radioButton}
-                onPress={() => setSelectedGender(selectedGender === 'female' ? null : 'female')}
+                onPress={() => setSelectedIntention(selectedIntention === 'serious' ? null : 'serious')}
               >
-                <View style={[styles.radioButtonInner, selectedGender === 'female' && styles.radioButtonSelected]} />
+                <View style={[styles.radioButtonInner, selectedIntention === 'serious' && styles.radioButtonSelected]} />
               </Pressable>
             </View>
 
             <View style={styles.genderOption}>
               <Text
                 style={styles.genderText}
-                onPress={() => setSelectedGender(selectedGender === 'non-binary' ? null : 'non-binary')}
+                onPress={() => setSelectedIntention(selectedIntention === 'shortterm' ? null : 'shortterm')}
               >
-                Non-binary
+                Short-term relationship
               </Text>
               <Pressable
                 style={styles.radioButton}
-                onPress={() => setSelectedGender(selectedGender === 'non-binary' ? null : 'non-binary')}
+                onPress={() => setSelectedIntention(selectedIntention === 'shortterm' ? null : 'shortterm')}
               >
-                <View style={[styles.radioButtonInner, selectedGender === 'non-binary' && styles.radioButtonSelected]} />
+                <View style={[styles.radioButtonInner, selectedIntention === 'shortterm' && styles.radioButtonSelected]} />
+              </Pressable>
+            </View>
+
+            <View style={styles.genderOption}>
+              <Text
+                style={styles.genderText}
+                onPress={() => setSelectedIntention(selectedIntention === 'casual' ? null : 'casual')}
+              >
+                Casual & Non-Serious Dating
+              </Text>
+              <Pressable
+                style={styles.radioButton}
+                onPress={() => setSelectedIntention(selectedIntention === 'casual' ? null : 'casual')}
+              >
+                <View style={[styles.radioButtonInner, selectedIntention === 'casual' && styles.radioButtonSelected]} />
+              </Pressable>
+            </View>
+
+            <View style={styles.genderOption}>
+              <Text
+                style={styles.genderText}
+                onPress={() => setSelectedIntention(selectedIntention === 'exploring' ? null : 'exploring')}
+              >
+                Exploring & Fun
+              </Text>
+              <Pressable
+                style={styles.radioButton}
+                onPress={() => setSelectedIntention(selectedIntention === 'nexploring' ? null : 'exploring')}
+              >
+                <View style={[styles.radioButtonInner, selectedIntention === 'exploring' && styles.radioButtonSelected]} />
               </Pressable>
             </View>
 
@@ -104,13 +131,13 @@ const DatingTypeScreen = () => {
 
       <CustomButton
         label="Submit"
-        onPress={() => navigation.navigate('Intention')}
+        onPress={() => navigation.navigate('WorkPlace')}
       />
     </SafeAreaView>
   );
 };
 
-export default DatingTypeScreen;
+export default DatingIntentionScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -180,6 +207,7 @@ const styles = StyleSheet.create({
   },
   genderContainer: {
     width: '100%',
+    marginTop: 20,
   },
   genderOption: {
     flexDirection: 'row',

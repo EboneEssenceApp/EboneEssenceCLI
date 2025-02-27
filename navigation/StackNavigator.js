@@ -9,7 +9,6 @@ import LikesScreen from './../screens/LikesScreen';
 import ChatScreen from './../screens/ChatScreen';
 import ProfileScreen from './../screens/ProfileScreen';
 import {NavigationContainer} from '@react-navigation/native';
-import LoginScreen from '../screens/LoginScreen';
 import BasicInfoScreen from '../screens/BasicInfoScreen';
 import NameScreen from '../screens/NameScreen';
 import EmailScreen from '../screens/EmailScreen';
@@ -20,7 +19,6 @@ import LocationScreen from '../screens/LocationScreen';
 import GenderScreen from '../screens/GenderScreen';
 import PreFinalScreen from '../screens/PreFinalScreen';
 import WritePromptScreen from '../screens/WritePromptScreen';
-import TypeScreen from '../screens/TypeScreen';
 import DatingTypeScreen from '../screens/DatingTypeScreen';
 import LookingForScreen from '../screens/LookingForScreen';
 import HomeTownScreen from '../screens/HomeTownScreen';
@@ -29,6 +27,8 @@ import JobTitleScreen from '../screens/JobTitleScreen';
 import PhotoScreen from '../screens/PhotoScreen';
 import PromptsScreen from '../screens/PromptsScreen';
 import ShowPromptsScreen from '../screens/ShowPromptsScreen';
+import SexualityScreen from '../screens/SexualityScreen';
+import DatingIntentionScreen from '../screens/DatingIntentionScreen.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -127,11 +127,11 @@ const BottomTabs = () => {
 const AuthStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Login"
         component={LoginScreen}
         options={{headerShown: false}}
-      />
+      /> */}
       <Stack.Screen
         name="Basicinfo"
         component={BasicInfoScreen}
@@ -173,8 +173,8 @@ const AuthStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Type"
-        component={TypeScreen}
+        name="Sexuality"
+        component={SexualityScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
@@ -183,13 +183,13 @@ const AuthStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="LookingFor"
-        component={LookingForScreen}
+        name="Intention"
+        component={DatingIntentionScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Hometown"
-        component={HomeTownScreen}
+        name="LookingFor"
+        component={LookingForScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
@@ -200,6 +200,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="JobTitle"
         component={JobTitleScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Hometown"
+        component={HomeTownScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen

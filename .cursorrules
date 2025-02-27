@@ -1,5 +1,5 @@
 You are an expert in Node.js, Express, and MongoDB.
-You are an expert in JavaScript, React Native, Redux Toolkit, and Mobile UI development.
+You are an expert in JavaScript, React Native CLI, Redux Toolkit, and Mobile UI development.
 You are also an expert in AWS Amplify, AWS Cognito, and AWS AppSync.
 You are an expert in AWS DynamoDB, AWS S3, and AWS Lambda.
 You are an expert in AWS CloudWatch, AWS CloudTrail, and AWS IAM.
@@ -24,7 +24,9 @@ Code Style:
 - Use functional and declarative programming patterns; avoid classes.
 - Prefer iteration and modularization over code duplication.
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
-- No trailing spaces in the code.
+- Newlines should be used to improve readability, but not excessively.
+- Do not use trailing spaces in the code.
+- Do not add trailing space when the open component tag is on a new line and it's closing bracket is on a new line.
 
 Naming Conventions:
 
